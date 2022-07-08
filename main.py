@@ -20,4 +20,4 @@ async def on_message(message):
 
     # await message.channel.send(content = reply)
 
-client.run(os.getenv('BOT_TOKEN'))
+client.run(os.getenv('BOT_TOKEN'))  # your bot token goes here
