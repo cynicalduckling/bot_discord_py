@@ -1,17 +1,22 @@
-from discord.ext import commands
+import discord
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 
-def main():
+client = discord.Client()
 
-    token = "OTY4MDc1MjM0MjExMTU1OTk5.YmZkUQ.yj0vgERZCDfMoqfEnFo-AMVqxDE"
+@client.event
+async def on_ready():
+  print('logged in')
+
+@client.event
+async def on_message(message):
+    if message.author == client.user:
+        return
     
-    bot = commands.Bot(command_prefix = ".") 
+    reply = "i know responses ar appreciated"
 
-    @bot.event
-    async def on_ready():
-        print("Connected to Discord")
+    await message.channel.send(content = reply)
 
-    bot.run(token)
-
-if __name__ == '__main__':
-    main()
+client.run(os.getenv('BOT_TOKEN'))
