@@ -15,8 +15,9 @@ async def on_message(message):
     if message.author == client.user:
         return
     
-    reply = "i know responses ar appreciated"
+    print(message.content)
+    # reply = "i know responses ar appreciated"
 
-    await message.channel.send(content = reply)
+    # await message.channel.send(content = reply)
 
 client.run(os.getenv('BOT_TOKEN'))
